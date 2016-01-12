@@ -26,7 +26,7 @@ public class ReferenceCounter {
         new ReferenceCounter().count(Paths.get(URI.create(directoryPath))).entrySet().stream()
                 .filter(entry -> entry.getKey().startsWith(filterPackage))
                 .sorted((x, y) -> y.getValue() - x.getValue())
-                .forEach(entry -> System.out.printf("%s : %d\n", entry.getKey(), entry.getValue()));
+                .forEach(entry -> System.out.printf("%s %d\n", entry.getKey(), entry.getValue()));
     }
 
     public Map<String, Integer> count(Path directoryPath) throws IOException {
@@ -69,7 +69,7 @@ public class ReferenceCounter {
             StringWriter writer = new StringWriter();
 
             TraceClassVisitor visitor = new TraceClassVisitor(new PrintWriter(writer));
-            reader.accept(visitor, ClassReader.SKIP_DEBUG);
+            reader.accept(visitor, ClassReader.SKIP_FRAMES);
 
             String trace = writer.toString();
             Matcher matcher = CLASS_NAME_PATTERN.matcher(trace);
