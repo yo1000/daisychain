@@ -21,7 +21,7 @@ public class ReferenceCounter {
 
     public static void main(String[] args) throws IOException {
         String directoryPath = args.length >= 1 ? "file:" + args[0] : null;
-        String filterPackage = args.length >= 2 ? args[1] : "";
+        String filterPackage = args.length >= 2 ? args[1] : ".*";
 
         new ReferenceCounter().count(Paths.get(URI.create(directoryPath))).entrySet().stream()
                 .filter(entry -> entry.getKey().matches(filterPackage))
