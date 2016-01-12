@@ -46,7 +46,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.yo1000.daisychain.ReferenceCounter</mainClass>
+                            <mainClass>com.yo1000.daisychain.counter.ReferenceCounter</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
