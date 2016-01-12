@@ -1,6 +1,6 @@
 # daisychain
 
-Count references to class.
+Count the number of branches and the referenced number to the class.
 
 # Usage
 
