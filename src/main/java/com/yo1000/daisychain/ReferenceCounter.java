@@ -24,7 +24,7 @@ public class ReferenceCounter {
         String filterPackage = args.length >= 2 ? args[1] : "";
 
         new ReferenceCounter().count(Paths.get(URI.create(directoryPath))).entrySet().stream()
-                .filter(entry -> entry.getKey().startsWith(filterPackage))
+                .filter(entry -> entry.getKey().matches(filterPackage))
                 .sorted((x, y) -> y.getValue() - x.getValue())
                 .forEach(entry -> System.out.printf("%s %d\n", entry.getKey(), entry.getValue()));
     }
